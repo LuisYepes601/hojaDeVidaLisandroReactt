@@ -1,69 +1,106 @@
-// Funcionalidad del menú móvil
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Toggle del menú móvil
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Cerrar menú al hacer clic en un enlace
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+    if (hamburger && navMenu) {
+        // Toggle del menú móvil
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
-    });
 
-    // Cerrar menú al hacer clic fuera
-    document.addEventListener('click', function(e) {
-        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    });
+        // Cerrar menú al hacer clic en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
 
-    // Navegación activa
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Navegación activa
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
 });
 
-// Funcionalidad del formulario de contacto
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
+// Funcionalidad del formulario de contacto con jQuery
+$(document).ready(function() {
+    const $contactForm = $('#contactForm');
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+    if ($contactForm.length) {
+        // Validación en tiempo real
+        $('#name, #email, #subject, #message').on('blur', function() {
+            validateField($(this));
+        });
+        
+        $contactForm.on('submit', function(e) {
             e.preventDefault();
             
+            // Remover mensajes de error previos
+            $('.error-message').fadeOut().remove();
+            $('.form-group').removeClass('has-error');
+            
             // Obtener valores del formulario
-            const formData = new FormData(contactForm);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            const priority = formData.get('priority');
-            const newsletter = formData.get('newsletter');
+            const name = $('#name').val().trim();
+            const email = $('#email').val().trim();
+            const subject = $('#subject').val().trim();
+            const message = $('#message').val().trim();
+            const priority = $('#priority').val();
+            const newsletter = $('#newsletter').is(':checked');
             
-            // Validación básica
-            if (!name || !email || !subject || !message) {
-                showNotification('Por favor, completa todos los campos obligatorios.', 'error');
+            let isValid = true;
+            
+            // Validación de campos
+            if (!name) {
+                showFieldError('#name', 'El nombre es obligatorio.');
+                isValid = false;
+            }
+            
+            if (!email) {
+                showFieldError('#email', 'El email es obligatorio.');
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                showFieldError('#email', 'Por favor, ingresa un email válido.');
+                isValid = false;
+            }
+            
+            if (!subject) {
+                showFieldError('#subject', 'El asunto es obligatorio.');
+                isValid = false;
+            }
+            
+            if (!message) {
+                showFieldError('#message', 'El mensaje es obligatorio.');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                // Animar scroll al primer error
+                $('html, body').animate({
+                    scrollTop: $('.has-error').first().offset().top - 100
+                }, 500);
                 return;
             }
             
-            if (!isValidEmail(email)) {
-                showNotification('Por favor, ingresa un email válido.', 'error');
-                return;
-            }
+            // Deshabilitar botón y mostrar loading
+            const $submitBtn = $('.submit-btn');
+            const originalText = $submitBtn.html();
+            $submitBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Enviando...');
             
             // Simular envío del formulario
             showNotification('Enviando mensaje...', 'info');
@@ -71,9 +108,62 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 // Aquí normalmente enviarías los datos a un servidor
                 showNotification('¡Mensaje enviado exitosamente! Te responderé pronto.', 'success');
-                contactForm.reset();
+                
+                // Resetear formulario con animación
+                $contactForm.fadeOut(300, function() {
+                    $contactForm[0].reset();
+                    $contactForm.fadeIn(300);
+                });
+                
+                // Restaurar botón
+                $submitBtn.prop('disabled', false).html(originalText);
             }, 2000);
         });
+    }
+    
+    // Función para validar campo individual
+    function validateField($field) {
+        const fieldId = $field.attr('id');
+        const value = $field.val().trim();
+        
+        // Remover errores previos
+        $field.closest('.form-group').removeClass('has-error').find('.error-message').fadeOut().remove();
+        
+        let errorMessage = '';
+        
+        switch(fieldId) {
+            case 'name':
+                if (!value) errorMessage = 'El nombre es obligatorio.';
+                break;
+            case 'email':
+                if (!value) {
+                    errorMessage = 'El email es obligatorio.';
+                } else if (!isValidEmail(value)) {
+                    errorMessage = 'Por favor, ingresa un email válido.';
+                }
+                break;
+            case 'subject':
+                if (!value) errorMessage = 'El asunto es obligatorio.';
+                break;
+            case 'message':
+                if (!value) errorMessage = 'El mensaje es obligatorio.';
+                break;
+        }
+        
+        if (errorMessage) {
+            showFieldError('#' + fieldId, errorMessage);
+        }
+    }
+    
+    // Función para mostrar error en campo específico
+    function showFieldError(fieldSelector, message) {
+        const $field = $(fieldSelector);
+        const $formGroup = $field.closest('.form-group');
+        
+        $formGroup.addClass('has-error');
+        
+        const $error = $('<div class="error-message text-danger mt-1"><i class="fas fa-exclamation-circle"></i> ' + message + '</div>');
+        $error.hide().insertAfter($field).fadeIn(300);
     }
 });
 

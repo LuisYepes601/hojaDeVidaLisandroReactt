@@ -5,6 +5,26 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color-text-primary: #2d3748;
+    --color-background-gradient-start: #ADD8E6;
+    --color-background-gradient-end: #B0E0E6;
+    --color-header-gradient-start: #87CEEB;
+    --color-header-gradient-end: #B0E0E6;
+    --color-hero-gradient-start: #667eea;
+    --color-hero-gradient-end: #00d4aa;
+    --color-btn-primary-bg: #ff6b6b;
+    --color-btn-primary-bg-hover: #ff5252;
+    --color-btn-secondary-bg: transparent;
+    --color-btn-secondary-color: white;
+    --color-highlight: #667eea;
+    --color-text-light: white;
+    --color-text-dark: #333;
+    --color-text-muted: #666;
+    --color-footer-bg: #333;
+    --color-footer-text: white;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -13,7 +33,7 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #2d3748;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, #ADD8E6 0%, #B0E0E6 100%);
     transition: background-color 0.3s ease;
 }
 
@@ -25,7 +45,7 @@ body {
 
 /* Header y navegación */
 .header {
-    background: linear-gradient(135deg, #667eea 0%, #00d4aa 100%);
+    background: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 100%);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
     top: 0;
@@ -1107,7 +1127,8 @@ body {
     height: 100%;
     background: #667eea;
     border-radius: 4px;
-    transition: width 0.3s ease;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: attr(data-width);
 }
 
 .awards-list {
@@ -1251,6 +1272,7 @@ body {
     background: linear-gradient(90deg, #667eea, #00d4aa);
     border-radius: 4px;
     transition: width 0.3s ease;
+    width: attr(data-width);
 }
 
 .soft-skills-list {
@@ -1826,6 +1848,88 @@ body {
     transform: scale(1.2);
 }
 
+/* Estilos para validación de formularios */
+.form-group.has-error .form-control {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.error-message i {
+    font-size: 0.75rem;
+}
+
+/* Animaciones de entrada */
+.animate-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos para notificaciones */
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 10000;
+    max-width: 400px;
+    animation: slideInFromRight 0.5s ease-out;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.notification-close:hover {
+    transform: scale(1.2);
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 /* Responsive para páginas específicas */
 @media (max-width: 768px) {
     .profile-grid,
@@ -1834,35 +1938,41 @@ body {
     .contact-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .profile-header {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .timeline-item,
     .education-item {
         padding-left: 60px;
     }
-    
+
     .timeline-marker,
     .education-icon {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
     }
-    
+
     .experience-timeline::before,
     .education-timeline::before {
         left: 20px;
     }
-    
+
     .summary-stats {
         grid-template-columns: 1fr;
     }
-    
+
     .form-card {
         padding: 2rem;
+    }
+
+    .notification {
+        left: 20px;
+        right: 20px;
+        max-width: none;
     }
 }
 
@@ -1870,21 +1980,25 @@ body {
     .page-title {
         font-size: 2rem;
     }
-    
+
     .profile-name {
         font-size: 2rem;
     }
-    
+
     .timeline-content,
     .education-content {
         padding: 1.5rem;
     }
-    
+
     .contact-item {
         padding: 1.5rem;
     }
-    
+
     .social-grid {
         grid-template-columns: 1fr;
     }
-} 
+
+    .error-message {
+        font-size: 0.8rem;
+    }
+}
