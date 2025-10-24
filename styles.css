@@ -23,11 +23,13 @@
     --color-text-muted: #666;
     --color-footer-bg: #333;
     --color-footer-text: white;
+
 }
 
 html {
     scroll-behavior: smooth;
 }
+/**/
 
 body {
     font-family: 'Roboto', sans-serif;
