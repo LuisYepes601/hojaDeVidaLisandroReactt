@@ -1,123 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Hoja de Vida - Página Principal</title>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lisandro Herrera - Hoja de Vida</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-brand">
-                <h1>Lisandro Herrera</h1>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link active">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a href="perfil.html" class="nav-link">Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a href="experiencia.html" class="nav-link">Experiencia</a>
-                </li>
-                <li class="nav-item">
-                    <a href="educacion.html" class="nav-link">Educación</a>
-                </li>
-                <li class="nav-item">
-                    <a href="habilidades.html" class="nav-link">Habilidades</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contacto.html" class="nav-link">Contacto</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
-    </header>
-
-    <main class="main-content">
-        <section class="hero-section">
-            <div class="hero-content">
-                <div class="profile-image">
-                    <img src="https://avatars.githubusercontent.com/u/148897864?s=400&u=a63e92839026f2db585d3fd2867f9acd95e2ada8&v=4" alt="Foto de Perfil" class="profile-img">
-                </div>
-                <div class="hero-text">
-                    <h1 class="hero-title">Lisandro Jose Herrera Guzman</h1>
-                    <h2 class="hero-subtitle">Estudiante de Ingeniería de Software</h2>
-                    <p class="hero-description">
-                        Soy un estudiante de 23 años nacido el 27 de mayo, originario de San Juan Nepomuceno, Bolívar. Actualmente curso el 5to semestre de Ingeniería de Software en la Universidad de Cartagena. Domino el español como lengua nativa y tengo conocimientos básicos de inglés.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="perfil.html" class="btn btn-primary">Ver Perfil Completo</a>
-                        <a href="contacto.html" class="btn btn-secondary">Contactar</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="highlights-section">
-            <div class="container">
-                <h2 class="section-title">Destacados</h2>
-                <div class="highlights-grid">
-                    <div class="highlight-card">
-                        <i class="fas fa-code highlight-icon"></i>
-                        <h3>Desarrollo Web</h3>
-                    </div>
-                    <div class="highlight-card">
-                        <i class="fas fa-mobile-alt highlight-icon"></i>
-                        <h3>Diseño Responsivo</h3>
-                        <p>Especialista en crear experiencias web adaptables</p>
-                    </div>
-                    <div class="highlight-card">
-                        <i class="fas fa-users highlight-icon"></i>
-                        <h3>Trabajo en Equipo</h3>
-                        <p>Excelente capacidad de colaboración y liderazgo</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="quick-info-section">
-            <div class="container">
-                <div class="quick-info-grid">
-                    <div class="info-item">
-                        <h3>Ubicación</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/search/?api=1&query=San+Juan+Nepomuceno,+Bolívar,+Colombia" target="_blank">San Juan Nepomuceno, Bolívar</a></p>
-                    </div>
-                    <div class="info-item">
-                        <h3>Email</h3>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:herraralisandro422@gmail.com">herraralisandro422@gmail.com</a></p>
-                    </div>
-                    <div class="info-item">
-                        <h3>Teléfono</h3>
-                        <p><i class="fas fa-phone"></i> 310 706 6412</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Lisandro Jose Herrera Guzman. Todos los derechos reservados.</p>
-            <div class="social-links">
-                <a href="https://github.com/dashboard" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/lisandro.herrera.0?igsh=aXphZTJuMjN5amt4" class="social-link"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-</body>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

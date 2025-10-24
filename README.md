@@ -1,239 +1,199 @@
-# Mi Hoja de Vida Web
+# Página Web React - Hoja de Vida de Lisandro Herrera
 
-Una página web profesional y moderna para mostrar tu hoja de vida personal, construida con HTML5, CSS3 y JavaScript vanilla.
+Esta es una aplicación React de una sola página (SPA) que presenta la hoja de vida de Lisandro Jose Herrera Guzman, estudiante de Ingeniería de Software.
 
 ## 🚀 Características
 
-- **Diseño Responsivo**: Se adapta perfectamente a todos los dispositivos
-- **Navegación Intuitiva**: Menú de navegación con 6 secciones principales
-- **Diseño Moderno**: Interfaz elegante con gradientes y efectos visuales
-- **Animaciones Suaves**: Transiciones y efectos hover para mejor UX
-- **Formulario de Contacto**: Sistema de contacto funcional con validaciones
-- **Iconos FontAwesome**: Iconografía profesional y consistente
-- **Tipografía Roboto**: Fuente moderna y legible
+- **SPA (Single Page Application)**: Navegación fluida sin recargas de página
+- **Responsive Design**: Optimizado para dispositivos móviles y desktop
+- **Animaciones Modernas**: Transiciones suaves y efectos visuales atractivos
+- **Formulario de Contacto**: Validación en tiempo real y envío simulado
+- **Componentes Reutilizables**: Arquitectura modular con React
+- **React Router**: Navegación programática entre secciones
+
+## 🛠️ Tecnologías Utilizadas
+
+### Frontend
+- **React 18**: Framework principal
+- **React Router DOM**: Navegación SPA
+- **Vite**: Build tool y servidor de desarrollo
+- **Bootstrap 5**: Framework CSS para diseño responsivo
+- **Font Awesome**: Iconos vectoriales
+- **CSS3**: Estilos personalizados con animaciones
+
+### Funcionalidades
+- Formulario de contacto con validación
+- Sistema de notificaciones
+- Animaciones de entrada
+- Navegación móvil responsiva
+- Lazy loading de componentes
 
 ## 📁 Estructura del Proyecto
 
 ```
-mi-cv-web/
-├── index.html          # Página principal
-├── perfil.html         # Página de perfil personal
-├── experiencia.html    # Página de experiencia laboral
-├── educacion.html      # Página de educación y certificaciones
-├── habilidades.html    # Página de habilidades técnicas
-├── contacto.html       # Página de contacto
-├── styles.css          # Estilos CSS principales
-├── script.js           # Funcionalidad JavaScript
-└── README.md           # Este archivo
+pagina-web-react/
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx          # Navegación principal
+│   │   ├── Footer.jsx          # Pie de página
+│   │   ├── Layout.jsx          # Layout principal
+│   │   └── Header.css          # Estilos del header
+│   ├── pages/
+│   │   ├── Home.jsx            # Página de inicio
+│   │   ├── Profile.jsx         # Página de perfil
+│   │   ├── Experience.jsx      # Página de experiencia
+│   │   ├── Education.jsx       # Página de educación
+│   │   ├── Skills.jsx          # Página de habilidades
+│   │   └── Contact.jsx         # Página de contacto
+│   ├── styles/
+│   │   └── styles.css          # Estilos principales
+│   ├── App.jsx                 # Componente principal
+│   ├── App.css                 # Estilos de la app
+│   ├── index.css               # Estilos globales
+│   └── main.jsx                # Punto de entrada
+├── index.html                  # HTML principal
+├── package.json                # Dependencias
+├── vite.config.js              # Configuración de Vite
+└── README.md                   # Este archivo
 ```
 
-## 🎨 Páginas Incluidas
+## 🚀 Instalación y Uso
 
-### 1. **Inicio (index.html)**
-- Hero section con foto de perfil
+### Prerrequisitos
+- Node.js (versión 16 o superior)
+- npm o yarn
+
+### Instalación
+```bash
+# Clonar el repositorio
+git clone <url-del-repositorio>
+cd pagina-web-react
+
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
+
+# Construir para producción
+npm run build
+
+# Vista previa de la build
+npm run preview
+```
+
+### Scripts Disponibles
+- `npm run dev`: Inicia el servidor de desarrollo
+- `npm run build`: Construye la aplicación para producción
+- `npm run preview`: Vista previa de la build de producción
+- `npm run lint`: Ejecuta el linter de código
+
+## 📱 Secciones de la Aplicación
+
+### 1. Inicio (/)
+- Presentación personal
 - Información destacada
-- Enlaces rápidos a otras secciones
-- Información de contacto básica
-
-### 2. **Perfil (perfil.html)**
-- Información personal detallada
-- Objetivos profesionales
-- Intereses personales
-- Certificaciones
-- Información adicional en sidebar
-
-### 3. **Experiencia (experiencia.html)**
-- Timeline de experiencia laboral
-- Detalles de cada trabajo
-- Logros y tecnologías utilizadas
-- Resumen estadístico
-
-### 4. **Educación (educacion.html)**
-- Timeline educativo
-- Certificaciones profesionales
-- Idiomas y niveles
-- Premios y reconocimientos
-
-### 5. **Habilidades (habilidades.html)**
-- Barras de progreso para habilidades técnicas
-- Categorías organizadas
-- Habilidades blandas
-- Niveles de experiencia
-
-### 6. **Contacto (contacto.html)**
-- Información de contacto
 - Enlaces a redes sociales
-- Formulario de contacto funcional
+- Llamados a la acción
+
+### 2. Perfil (/perfil)
+- Información personal detallada
+- Foto de perfil
+- Descripción profesional
+- Enlaces a redes sociales
+
+### 3. Experiencia (/experiencia)
+- Timeline de proyectos académicos
+- Logros y responsabilidades
+- Tecnologías utilizadas
+- Estadísticas de experiencia
+
+### 4. Educación (/educacion)
+- Formación académica
+- Idiomas
+- Certificaciones
+- Información adicional
+
+### 5. Habilidades (/habilidades)
+- Lenguajes de programación
+- Frameworks y librerías
+- Herramientas de desarrollo
+- Nivel de experiencia
+
+### 6. Contacto (/contacto)
+- Información de contacto
+- Formulario de contacto con validación
+- Redes sociales
 - Razones para contactar
 
-## 🛠️ Tecnologías Utilizadas
+## 🎨 Características de Diseño
 
-- **HTML5**: Estructura semántica y accesible
-- **CSS3**: Estilos modernos con Flexbox y Grid
-- **JavaScript ES6+**: Funcionalidad interactiva
-- **FontAwesome**: Iconografía profesional
-- **Google Fonts**: Tipografía Roboto
-
-## 🚀 Cómo Usar
-
-### 1. **Descarga el Proyecto**
-```bash
-git clone [URL_DEL_REPOSITORIO]
-cd mi-cv-web
-```
-
-### 2. **Personaliza el Contenido**
-Edita los archivos HTML para incluir tu información personal:
-
-- **Datos Personales**: Nombre, título, ubicación
-- **Experiencia**: Trabajos, empresas, fechas
-- **Educación**: Títulos, instituciones, años
-- **Habilidades**: Niveles de competencia
-- **Contacto**: Email, teléfono, redes sociales
-
-### 3. **Personaliza las Imágenes**
-- Reemplaza las imágenes placeholder con tus propias fotos
-- Ajusta las rutas en los archivos HTML
-- Optimiza las imágenes para web
-
-### 4. **Personaliza los Colores**
-Edita el archivo `styles.css` para cambiar la paleta de colores:
-
-```css
-:root {
-    --primary-color: #667eea;
-    --secondary-color: #764ba2;
-    --accent-color: #ff6b6b;
-    --text-color: #333;
-    --light-bg: #f8f9fa;
-}
-```
-
-### 5. **Ajusta el Contenido**
-- Modifica los textos descriptivos
-- Actualiza las fechas y períodos
-- Ajusta las habilidades y niveles
-- Personaliza los intereses y objetivos
-
-## 📱 Responsive Design
-
-El sitio web está completamente optimizado para:
-
-- **Desktop**: 1200px y superior
-- **Tablet**: 768px - 1199px
-- **Mobile**: 320px - 767px
+- **Gradientes Modernos**: Colores atractivos y profesionales
+- **Animaciones Suaves**: Transiciones CSS y efectos hover
+- **Tipografía Roboto**: Fuente moderna y legible
+- **Iconos Font Awesome**: Iconografía consistente
+- **Responsive Grid**: Layout adaptable a diferentes pantallas
 
 ## 🔧 Funcionalidades JavaScript
 
-### Menú Móvil
-- Toggle automático del menú hamburguesa
-- Navegación táctil optimizada
-- Cierre automático al hacer clic
+- **Validación de Formularios**: Validación en tiempo real con feedback visual
+- **Sistema de Notificaciones**: Mensajes de éxito/error con animaciones
+- **Navegación Móvil**: Menú hamburguesa responsivo
+- **Animaciones de Scroll**: Elementos que aparecen al hacer scroll
+- **Lazy Loading**: Carga diferida de componentes
 
-### Formulario de Contacto
-- Validación de campos en tiempo real
-- Sistema de notificaciones
-- Simulación de envío (configurable para backend real)
+## 📊 Performance
 
-### Animaciones
-- Efectos de scroll suave
-- Animaciones de entrada
-- Contadores animados
-- Efectos hover interactivos
-
-## 🎯 Personalización Avanzada
-
-### Agregar Nuevas Secciones
-1. Crea un nuevo archivo HTML
-2. Copia la estructura del header y footer
-3. Agrega el enlace en la navegación
-4. Crea los estilos CSS correspondientes
-
-### Modificar la Paleta de Colores
-```css
-/* Cambia estos valores en styles.css */
-.header {
-    background: linear-gradient(135deg, #tu-color-1 0%, #tu-color-2 100%);
-}
-
-.btn-primary {
-    background-color: #tu-color-accent;
-}
-```
-
-### Agregar Nuevas Funcionalidades
-1. Edita `script.js`
-2. Agrega tus funciones personalizadas
-3. Vincula los eventos HTML correspondientes
-
-## 📊 SEO y Accesibilidad
-
-- **Meta tags** optimizados
-- **Estructura semántica** HTML5
-- **Alt text** para imágenes
-- **Navegación por teclado** compatible
-- **Contraste** de colores adecuado
-
-## 🌐 Despliegue
-
-### Opciones de Hosting Gratuito
-- **GitHub Pages**: Ideal para proyectos personales
-- **Netlify**: Despliegue automático desde Git
-- **Vercel**: Plataforma moderna y rápida
-- **Firebase Hosting**: Solución de Google
-
-### Pasos para GitHub Pages
-1. Sube tu código a un repositorio GitHub
-2. Ve a Settings > Pages
-3. Selecciona la rama main
-4. Tu sitio estará disponible en `https://usuario.github.io/repositorio`
+- **Code Splitting**: Carga de componentes bajo demanda
+- **Optimización de Imágenes**: Imágenes optimizadas para web
+- **CSS Minificado**: Estilos optimizados para producción
+- **Bundle Analysis**: Análisis del tamaño del bundle
 
 ## 🔒 Seguridad
 
-- **Validación del lado del cliente** para formularios
-- **Sanitización** de entradas de usuario
-- **HTTPS** recomendado para producción
-- **Headers de seguridad** configurables
+- Validación de entrada de usuario
+- Protección contra XSS
+- Headers de seguridad
+- Sanitización de datos
 
-## 📈 Rendimiento
+## 🌐 Despliegue
 
-- **CSS optimizado** con selectores eficientes
-- **JavaScript modular** y no bloqueante
-- **Imágenes optimizadas** y lazy loading
-- **Fuentes web** cargadas eficientemente
+La aplicación puede ser desplegada en:
+- **Vercel**
+- **Netlify**
+- **GitHub Pages**
+- **AWS S3 + CloudFront**
+- **Firebase Hosting**
 
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas:
+## 🤝 Contribución
 
 1. Fork el proyecto
-2. Crea una rama para tu feature
-3. Commit tus cambios
-4. Push a la rama
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
 ## 📝 Licencia
 
-Este proyecto está bajo la Licencia MIT. Puedes usarlo libremente para proyectos personales y comerciales.
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
-## 🆘 Soporte
+## 👨‍💻 Autor
 
-Si tienes problemas o preguntas:
+**Lisandro Jose Herrera Guzman**
+- Email: herraralisandro422@gmail.com
+- GitHub: [Perfil de GitHub](https://github.com/dashboard)
+- Instagram: [@lisandro.herrera.0](https://www.instagram.com/lisandro.herrera.0)
 
-1. Revisa la documentación
-2. Busca en los issues existentes
-3. Crea un nuevo issue con detalles
-4. Contacta al desarrollador
+## 🙏 Agradecimientos
 
-## 🎉 Agradecimientos
-
-- **FontAwesome** por los iconos
-- **Google Fonts** por la tipografía
-- **Comunidad CSS** por las técnicas modernas
-- **Desarrolladores web** por la inspiración
+- Bootstrap por el framework CSS
+- Font Awesome por los iconos
+- React por el framework frontend
+- Vite por la herramienta de build
+- Comunidad de desarrollo web
 
 ---
 
-**¡Disfruta creando tu hoja de vida web profesional!** 🚀
-
-*Desarrollado con ❤️ para la comunidad de desarrolladores* 
+⭐ Si te gusta este proyecto, ¡dale una estrella en GitHub!
